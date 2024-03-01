@@ -1,5 +1,10 @@
+
 <script lang="ts" setup>
 import { onMounted } from "vue";
+const props = defineProps<{
+  targeContent:string
+}>()
+
 onMounted(() => {
   /** 页面初始化时创建 canvas 元素,并回执画布*/
   createCanvasContainer();
@@ -57,7 +62,7 @@ const createCanvas = () => {
       ctx.save();
       ctx.translate(x, y);
       ctx.rotate(angle);
-      ctx.fillText("龚箭前端", 0, 0);
+      ctx.fillText(props.targeContent, 0, 0);
       ctx.restore();
     }
   }
